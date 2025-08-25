@@ -39,4 +39,10 @@ class Home extends BaseController
             return redirect()->to(base_url('/'))->with('mensaje','0');
         }
     }
+
+    public function salir(){
+        $session = session();
+        $session->destroy();
+        return redirect()->to(base_url('/'));
+    }
 }
