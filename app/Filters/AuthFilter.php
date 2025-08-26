@@ -18,7 +18,7 @@ class AuthFilter implements FilterInterface
         // Si se especifica un rol, verificar que el usuario tenga ese rol
         if ($arguments && count($arguments) > 0) {
             $requiredRole = $arguments[0];
-            $userRole = session('type');
+            $userRole = session('rol');
             
             if ($userRole !== $requiredRole) {
                 // Redirigir según el rol del usuario

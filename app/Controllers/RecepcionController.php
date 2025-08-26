@@ -7,7 +7,7 @@ class RecepcionController extends BaseController
     public function index()
     {
         // Verificar que el usuario sea recepcionista
-        if (session('type') !== 'recepcionista') {
+        if (session('rol') !== 'recepcionista') {
             return redirect()->to(base_url('/'));
         }
         
@@ -17,7 +17,7 @@ class RecepcionController extends BaseController
     public function registrarPaciente()
     {
         // Verificar que el usuario sea recepcionista
-        if (session('type') !== 'recepcionista') {
+        if (session('rol') !== 'recepcionista') {
             return redirect()->to(base_url('/'));
         }
         
@@ -28,7 +28,7 @@ class RecepcionController extends BaseController
     public function agendarCita()
     {
         // Verificar que el usuario sea recepcionista
-        if (session('type') !== 'recepcionista') {
+        if (session('rol') !== 'recepcionista') {
             return redirect()->to(base_url('/'));
         }
         
@@ -39,7 +39,7 @@ class RecepcionController extends BaseController
     public function verCitas()
     {
         // Verificar que el usuario sea recepcionista
-        if (session('type') !== 'recepcionista') {
+        if (session('rol') !== 'recepcionista') {
             return redirect()->to(base_url('/'));
         }
         

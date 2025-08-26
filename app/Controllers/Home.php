@@ -24,17 +24,22 @@ class Home extends BaseController
         
 
         if (count($datosUsuario) > 0 && password_verify($password, $datosUsuario[0]['password'])) {
+            // Obtener información del usuario con su rol
+            $usuarioConRol = $Usuario->obtenerUsuarioConRol($datosUsuario[0]['id_usuario']);
+            
             // Usuario y contraseña correctos
             $data =[
-                "id_usuario" => $datosUsuario[0]['id_usuario'],
-                "usuario" => $datosUsuario[0]['usuario'],
-                "type" => $datosUsuario[0]['type']
+                "id_usuario" => $usuarioConRol['id_usuario'],
+                "usuario" => $usuarioConRol['usuario'],
+                "id_rol" => $usuarioConRol['id_rol'],
+                "rol" => $usuarioConRol['rol'],
+                "type" => $usuarioConRol['rol'] // Mantener compatibilidad con filtros existentes
             ];
             $session = session();
             $session->set($data);
             
             // Redirigir según el rol del usuario
-            switch ($datosUsuario[0]['type']) {
+            switch ($usuarioConRol['rol']) {
                 case 'admin':
                     return redirect()->to(base_url('/admin/dashboard'))->with('mensaje','1');
                 case 'recepcionista':

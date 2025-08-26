@@ -7,7 +7,7 @@ class TecnicoController extends BaseController
     public function index()
     {
         // Verificar que el usuario sea técnico
-        if (session('type') !== 'tecnico') {
+        if (session('rol') !== 'tecnico') {
             return redirect()->to(base_url('/'));
         }
         
@@ -17,7 +17,7 @@ class TecnicoController extends BaseController
     public function verPacientes()
     {
         // Verificar que el usuario sea técnico
-        if (session('type') !== 'tecnico') {
+        if (session('rol') !== 'tecnico') {
             return redirect()->to(base_url('/'));
         }
         
@@ -28,7 +28,7 @@ class TecnicoController extends BaseController
     public function registrarTratamiento()
     {
         // Verificar que el usuario sea técnico
-        if (session('type') !== 'tecnico') {
+        if (session('rol') !== 'tecnico') {
             return redirect()->to(base_url('/'));
         }
         
@@ -39,7 +39,7 @@ class TecnicoController extends BaseController
     public function historialPaciente($id = null)
     {
         // Verificar que el usuario sea técnico
-        if (session('type') !== 'tecnico') {
+        if (session('rol') !== 'tecnico') {
             return redirect()->to(base_url('/'));
         }
         
@@ -54,7 +54,7 @@ class TecnicoController extends BaseController
     public function equipos()
     {
         // Verificar que el usuario sea técnico
-        if (session('type') !== 'tecnico') {
+        if (session('rol') !== 'tecnico') {
             return redirect()->to(base_url('/'));
         }
         

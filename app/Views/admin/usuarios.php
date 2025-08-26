@@ -61,12 +61,12 @@
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
                             <div class="mb-3">
-                                <label for="tipo" class="form-label">Tipo de Usuario</label>
-                                <select class="form-select" id="tipo" name="tipo" required>
+                                <label for="id_rol" class="form-label">Rol de Usuario</label>
+                                <select class="form-select" id="id_rol" name="id_rol" required>
                                     <option value="">Seleccionar...</option>
-                                    <option value="admin">Administrador</option>
-                                    <option value="recepcionista">Recepcionista</option>
-                                    <option value="tecnico">Técnico</option>
+                                    <?php foreach ($roles as $rol): ?>
+                                        <option value="<?= $rol['id_rol'] ?>"><?= ucfirst($rol['descripcion']) ?></option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Crear Usuario</button>
@@ -87,7 +87,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Usuario</th>
-                                        <th>Tipo</th>
+                                        <th>Rol</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -99,19 +99,21 @@
                                                 <td><?= $usuario['usuario'] ?></td>
                                                 <td>
                                                     <?php 
-                                                    switch($usuario['type']) {
+                                                    $rolClass = '';
+                                                    switch(strtolower($usuario['rol'])) {
                                                         case 'admin':
-                                                            echo '<span class="badge bg-danger">Administrador</span>';
+                                                            $rolClass = 'bg-danger';
                                                             break;
                                                         case 'recepcionista':
-                                                            echo '<span class="badge bg-info">Recepcionista</span>';
+                                                            $rolClass = 'bg-info';
                                                             break;
                                                         case 'tecnico':
-                                                            echo '<span class="badge bg-success">Técnico</span>';
+                                                            $rolClass = 'bg-success';
                                                             break;
                                                         default:
-                                                            echo '<span class="badge bg-secondary">' . $usuario['type'] . '</span>';
+                                                            $rolClass = 'bg-secondary';
                                                     }
+                                                    echo '<span class="badge ' . $rolClass . '">' . ucfirst($usuario['rol']) . '</span>';
                                                     ?>
                                                 </td>
                                                 <td>

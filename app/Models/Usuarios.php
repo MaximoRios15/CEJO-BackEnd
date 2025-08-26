@@ -5,7 +5,7 @@ class Usuarios extends Model
 {
     protected $table = 'tusuarios';
     protected $primaryKey = 'id_usuario';
-    protected $allowedFields = ['usuario', 'password', 'type'];
+    protected $allowedFields = ['usuario', 'password', 'id_rol'];
     
     public function obtenerUsuarios($data = [])
     {
@@ -64,11 +64,36 @@ class Usuarios extends Model
         return count($result) > 0;
     }
     
-    public function obtenerUsuariosPorTipo($tipo)
+    public function obtenerUsuariosPorRol($idRol)
     {
         return $this->db->table('tusuarios')
-                       ->where('type', $tipo)
+                       ->where('id_rol', $idRol)
                        ->get()
                        ->getResultArray();
+    }
+    
+    /**
+     * Obtener usuarios con información de roles
+     */
+    public function obtenerUsuariosConRoles()
+    {
+        return $this->db->table('tusuarios u')
+                       ->join('troles r', 'u.id_rol = r.id_rol')
+                       ->select('u.*, r.descripcion as rol')
+                       ->get()
+                       ->getResultArray();
+    }
+    
+    /**
+     * Obtener usuario por ID con información del rol
+     */
+    public function obtenerUsuarioConRol($id)
+    {
+        return $this->db->table('tusuarios u')
+                       ->join('troles r', 'u.id_rol = r.id_rol')
+                       ->select('u.*, r.descripcion as rol')
+                       ->where('u.id_usuario', $id)
+                       ->get()
+                       ->getRowArray();
     }
 }

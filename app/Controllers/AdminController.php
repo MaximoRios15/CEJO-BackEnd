@@ -9,7 +9,7 @@ class AdminController extends BaseController
     public function index()
     {
         // Verificar que el usuario sea admin
-        if (session('type') !== 'admin') {
+        if (session('rol') !== 'admin') {
             return redirect()->to(base_url('/'));
         }
         
@@ -19,33 +19,39 @@ class AdminController extends BaseController
     public function usuarios()
     {
         // Verificar que el usuario sea admin
-        if (session('type') !== 'admin') {
+        if (session('rol') !== 'admin') {
             return redirect()->to(base_url('/'));
         }
         
         $usuarioModel = new Usuarios();
-        $usuarios = $usuarioModel->obtenerUsuarios([]);
+        $rolesModel = new \App\Models\Roles();
         
-        return view('admin/usuarios', ['usuarios' => $usuarios]);
+        $usuarios = $usuarioModel->obtenerUsuariosConRoles();
+        $roles = $rolesModel->obtenerRoles();
+        
+        return view('admin/usuarios', [
+            'usuarios' => $usuarios,
+            'roles' => $roles
+        ]);
     }
     
     public function crearUsuario()
     {
         // Verificar que el usuario sea admin
-        if (session('type') !== 'admin') {
+        if (session('rol') !== 'admin') {
             return redirect()->to(base_url('/'));
         }
         
         $usuario = $this->request->getPost('usuario');
         $password = $this->request->getPost('password');
-        $tipo = $this->request->getPost('tipo');
+        $idRol = $this->request->getPost('id_rol');
         
-        if ($usuario && $password && $tipo) {
+        if ($usuario && $password && $idRol) {
             $usuarioModel = new Usuarios();
             $resultado = $usuarioModel->crearUsuario([
                 'usuario' => $usuario,
                 'password' => password_hash($password, PASSWORD_DEFAULT),
-                'type' => $tipo
+                'id_rol' => $idRol
             ]);
             
             if ($resultado) {
