@@ -26,16 +26,25 @@ class Home extends BaseController
         if (count($datosUsuario) > 0 && password_verify($password, $datosUsuario[0]['password'])) {
             // Usuario y contraseña correctos
             $data =[
-                //aca se puede agregar a futuro el id del usuario
+                "id_usuario" => $datosUsuario[0]['id_usuario'],
                 "usuario" => $datosUsuario[0]['usuario'],
                 "type" => $datosUsuario[0]['type']
             ];
             $session = session();
-            $session -> set($data);
-             return redirect()->to(base_url('/inicio'))->with('mensaje','1');
-
-
-        }else{
+            $session->set($data);
+            
+            // Redirigir según el rol del usuario
+            switch ($datosUsuario[0]['type']) {
+                case 'admin':
+                    return redirect()->to(base_url('/admin/dashboard'))->with('mensaje','1');
+                case 'recepcionista':
+                    return redirect()->to(base_url('/recepcion/inicio'))->with('mensaje','1');
+                case 'tecnico':
+                    return redirect()->to(base_url('/tecnico/panel'))->with('mensaje','1');
+                default:
+                    return redirect()->to(base_url('/inicio'))->with('mensaje','1');
+            }
+        } else {
             return redirect()->to(base_url('/'))->with('mensaje','0');
         }
     }
