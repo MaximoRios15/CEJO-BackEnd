@@ -10,16 +10,23 @@ class Usuario extends Seeder
     {
         $usuario = "admin";
         $password = password_hash('123', PASSWORD_DEFAULT);
-        $type = "admin";
+        $id_rol = 1; // 1 = admin según RolesSeeder
 
         $data = [
             'usuario' => $usuario,
-            'password'    => $password,
-            'type' => $type,
+            'password' => $password,
+            'id_rol' => $id_rol,
         ];
 
+        // Verificar si el usuario ya existe antes de insertarlo
+        $existeUsuario = $this->db->table('tusuarios')
+                                  ->where('usuario', $usuario)
+                                  ->get()
+                                  ->getRow();
         
-        // Using Query Builder
-        $this->db->table('TUsuarios')->insert($data);
+        if (!$existeUsuario) {
+            // Using Query Builder
+            $this->db->table('tusuarios')->insert($data);
+        }
     }
 }
