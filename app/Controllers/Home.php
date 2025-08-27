@@ -63,8 +63,8 @@ class Home extends BaseController
             switch ($usuarioConRol['rol']) {
                 case 'admin':
                     return redirect()->to(base_url('/admin/dashboard'))->with('mensaje','1');
-                case 'recepcionista':
-                    return redirect()->to(base_url('/recepcion/inicio'))->with('mensaje','1');
+                case 'recepcion':
+                    return redirect()->to('http://localhost/CEJO/CEJO-FrontEnd/cejo-recepcion/recepcion.html');
                 case 'tecnico':
                     return redirect()->to(base_url('/tecnico/panel'))->with('mensaje','1');
                 default:
@@ -87,8 +87,8 @@ class Home extends BaseController
         switch ($rol) {
             case 'admin':
                 return base_url('/admin/dashboard');
-            case 'recepcionista':
-                return base_url('/recepcion/inicio');
+            case 'recepcion':
+                return 'http://localhost/CEJO/CEJO-FrontEnd/cejo-recepcion/recepcion.html';
             case 'tecnico':
                 return base_url('/tecnico/panel');
             default:

@@ -104,9 +104,9 @@
                                                         case 'admin':
                                                             $rolClass = 'bg-danger';
                                                             break;
-                                                        case 'recepcionista':
-                                                            $rolClass = 'bg-info';
-                                                            break;
+                                                        case 'recepcion':
+                                            $rolClass = 'bg-info';
+                                            break;
                                                         case 'tecnico':
                                                             $rolClass = 'bg-success';
                                                             break;

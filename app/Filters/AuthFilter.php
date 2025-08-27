@@ -25,8 +25,8 @@ class AuthFilter implements FilterInterface
                 switch ($userRole) {
                     case 'admin':
                         return redirect()->to(base_url('/admin/dashboard'));
-                    case 'recepcionista':
-                        return redirect()->to(base_url('/recepcion/inicio'));
+                    case 'recepcion':
+                        return redirect()->to('http://localhost/CEJO/CEJO-FrontEnd/cejo-recepcion/recepcion.html');
                     case 'tecnico':
                         return redirect()->to(base_url('/tecnico/panel'));
                     default:

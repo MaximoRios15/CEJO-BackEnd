@@ -18,8 +18,8 @@ $routes->group('admin', ['filter' => 'auth:admin'], function($routes) {
     $routes->get('eliminar-usuario/(:num)', 'AdminController::eliminarUsuario/$1');
 });
 
-// Rutas para recepcionista
-$routes->group('recepcion', ['filter' => 'auth:recepcionista'], function($routes) {
+// Rutas para recepcion
+$routes->group('recepcion', ['filter' => 'auth:recepcion'], function($routes) {
     $routes->get('inicio', 'RecepcionController::index');
     $routes->get('registrar-paciente', 'RecepcionController::registrarPaciente');
     $routes->get('agendar-cita', 'RecepcionController::agendarCita');

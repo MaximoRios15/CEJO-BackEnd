@@ -8,11 +8,11 @@ class UsuariosRoles extends Seeder
 {
     public function run()
     {
-        // Usuario Recepcionista
+        // Usuario Recepcion
         $recepcionista = [
             'usuario' => 'recepcionista',
             'password' => password_hash('123', PASSWORD_DEFAULT),
-            'type' => 'recepcionista',
+            'type' => 'recepcion',
         ];
         
         // Usuario Técnico
@@ -33,12 +33,12 @@ class UsuariosRoles extends Seeder
                                  ->get()
                                  ->getResultArray();
         
-        // Insertar usuario recepcionista si no existe
+        // Insertar usuario recepcion si no existe
         if (empty($existeRecepcionista)) {
             $this->db->table('TUsuarios')->insert($recepcionista);
-            echo "Usuario recepcionista creado exitosamente.\n";
+            echo "Usuario recepcion creado exitosamente.\n";
         } else {
-            echo "Usuario recepcionista ya existe.\n";
+            echo "Usuario recepcion ya existe.\n";
         }
         
         // Insertar usuario técnico si no existe
@@ -54,7 +54,7 @@ class UsuariosRoles extends Seeder
             [
                 'usuario' => 'recepcion01',
                 'password' => password_hash('recepcion123', PASSWORD_DEFAULT),
-                'type' => 'recepcionista',
+                'type' => 'recepcion',
             ],
             [
                 'usuario' => 'tecnico01',

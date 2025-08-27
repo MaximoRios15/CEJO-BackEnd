@@ -1,0 +1,15 @@
+ERROR - 2025-08-27 01:10:52 --> mysqli_sql_exception: Duplicate entry '2' for key 'PRIMARY' in C:\xampp\htdocs\CEJO\CEJO-BackEnd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\CEJO\CEJO-BackEnd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `tr...', 0)
+#1 C:\xampp\htdocs\CEJO\CEJO-BackEnd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tr...')
+#2 C:\xampp\htdocs\CEJO\CEJO-BackEnd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tr...')
+#3 C:\xampp\htdocs\CEJO\CEJO-BackEnd\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tr...', Array, false)
+#4 C:\xampp\htdocs\CEJO\CEJO-BackEnd\app\Database\Seeds\RolesSeeder.php(34): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\CEJO\CEJO-BackEnd\vendor\codeigniter4\framework\system\Database\Seeder.php(149): App\Database\Seeds\RolesSeeder->run()
+#6 C:\xampp\htdocs\CEJO\CEJO-BackEnd\vendor\codeigniter4\framework\system\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#7 C:\xampp\htdocs\CEJO\CEJO-BackEnd\vendor\codeigniter4\framework\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run(Array)
+#8 C:\xampp\htdocs\CEJO\CEJO-BackEnd\vendor\codeigniter4\framework\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#9 C:\xampp\htdocs\CEJO\CEJO-BackEnd\vendor\codeigniter4\framework\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#10 C:\xampp\htdocs\CEJO\CEJO-BackEnd\vendor\codeigniter4\framework\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#11 C:\xampp\htdocs\CEJO\CEJO-BackEnd\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#12 {main}

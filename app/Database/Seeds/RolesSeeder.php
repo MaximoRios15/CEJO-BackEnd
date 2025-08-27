@@ -15,7 +15,7 @@ class RolesSeeder extends Seeder
             ],
             [
                 'id_rol'     => 2,
-                'descripcion' => 'recepcionista'
+                'descripcion' => 'recepcion'
             ],
             [
                 'id_rol'     => 3,
