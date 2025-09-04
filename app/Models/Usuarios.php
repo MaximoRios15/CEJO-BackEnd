@@ -3,13 +3,13 @@ use CodeIgniter\Model;
 
 class Usuarios extends Model
 {
-    protected $table = 'tusuarios';
-    protected $primaryKey = 'id_usuario';
-    protected $allowedFields = ['usuario', 'password', 'id_rol'];
+    protected $table = 'usuarios';
+    protected $primaryKey = 'idUsuarios';
+    protected $allowedFields = ['Nombres_Usuarios', 'Apellidos_Usuarios', 'DNI_Usuarios', 'Password_Usuarios', 'FechaCreacion_Usuarios', 'UltimoAcceso_Usuarios', 'idRoles_Usuarios', 'Activo_Usuarios'];
     
     public function obtenerUsuarios($data = [])
     {
-        $usuario = $this->db->table('tusuarios');
+        $usuario = $this->db->table('usuarios');
         if (!empty($data)) {
             $usuario->where($data);
         }
@@ -19,7 +19,7 @@ class Usuarios extends Model
     public function crearUsuario($data)
     {
         try {
-            return $this->db->table('tusuarios')->insert($data);
+            return $this->db->table('usuarios')->insert($data);
         } catch (\Exception $e) {
             return false;
         }
@@ -28,8 +28,8 @@ class Usuarios extends Model
     public function actualizarUsuario($id, $data)
     {
         try {
-            return $this->db->table('tusuarios')
-                          ->where('id_usuario', $id)
+            return $this->db->table('usuarios')
+                          ->where('idUsuarios', $id)
                           ->update($data);
         } catch (\Exception $e) {
             return false;
@@ -39,8 +39,8 @@ class Usuarios extends Model
     public function eliminarUsuario($id)
     {
         try {
-            return $this->db->table('tusuarios')
-                          ->where('id_usuario', $id)
+            return $this->db->table('usuarios')
+                          ->where('idUsuarios', $id)
                           ->delete();
         } catch (\Exception $e) {
             return false;
@@ -49,16 +49,16 @@ class Usuarios extends Model
     
     public function obtenerUsuarioPorId($id)
     {
-        return $this->db->table('tusuarios')
-                       ->where('id_usuario', $id)
+        return $this->db->table('usuarios')
+                       ->where('idUsuarios', $id)
                        ->get()
                        ->getRowArray();
     }
     
     public function verificarUsuarioExiste($usuario)
     {
-        $result = $this->db->table('tusuarios')
-                          ->where('usuario', $usuario)
+        $result = $this->db->table('usuarios')
+                          ->where('DNI_Usuarios', $usuario)
                           ->get()
                           ->getResultArray();
         return count($result) > 0;
@@ -66,8 +66,8 @@ class Usuarios extends Model
     
     public function obtenerUsuariosPorRol($idRol)
     {
-        return $this->db->table('tusuarios')
-                       ->where('id_rol', $idRol)
+        return $this->db->table('usuarios')
+                       ->where('idRoles_Usuarios', $idRol)
                        ->get()
                        ->getResultArray();
     }
@@ -77,9 +77,9 @@ class Usuarios extends Model
      */
     public function obtenerUsuariosConRoles()
     {
-        return $this->db->table('tusuarios u')
-                       ->join('troles r', 'u.id_rol = r.id_rol')
-                       ->select('u.*, r.descripcion as rol')
+        return $this->db->table('usuarios u')
+                       ->join('roles r', 'u.idRoles_Usuarios = r.idRoles')
+                       ->select('u.*, r.Descripcion_Roles as rol')
                        ->get()
                        ->getResultArray();
     }
@@ -89,10 +89,10 @@ class Usuarios extends Model
      */
     public function obtenerUsuarioConRol($id)
     {
-        return $this->db->table('tusuarios u')
-                       ->join('troles r', 'u.id_rol = r.id_rol')
-                       ->select('u.*, r.descripcion as rol')
-                       ->where('u.id_usuario', $id)
+        return $this->db->table('usuarios u')
+                       ->join('roles r', 'u.idRoles_Usuarios = r.idRoles')
+                       ->select('u.*, r.Descripcion_Roles as rol')
+                       ->where('u.idUsuarios', $id)
                        ->get()
                        ->getRowArray();
     }

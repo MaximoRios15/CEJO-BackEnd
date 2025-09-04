@@ -1,20 +1,38 @@
 <?php namespace App\Controllers;
 use App\Models\Usuarios;
+use CodeIgniter\Controller;
 
-class Home extends BaseController
+class Home extends Controller
 {
     public function index()
     {
-        // Solo obtener mensaje si hay una sesión activa
-        $mensaje = null;
-        if (session_status() === PHP_SESSION_ACTIVE && session()->has('mensaje')) {
-            $mensaje = session('mensaje');
-        }
-        return view('login', ['mensaje' => $mensaje]);
+        // API endpoint - devolver información básica del sistema
+        return $this->response->setJSON([
+            'status' => 'active',
+            'message' => 'CEJO Backend API is running',
+            'version' => '1.0.0'
+        ]);
     }
 
     public function inicio(){
-        return view('inicio');
+        // Verificar si el usuario está autenticado
+        $session = session();
+        if (!$session->has('id_usuario')) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'No autenticado'
+            ])->setStatusCode(401);
+        }
+        
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Usuario autenticado',
+            'user' => [
+                'id' => $session->get('id_usuario'),
+                'usuario' => $session->get('usuario'),
+                'rol' => $session->get('rol')
+            ]
+        ]);
     }
 
     public function login(){
@@ -67,7 +85,7 @@ class Home extends BaseController
         
         $Usuario = new Usuarios();
 
-        $datosUsuario = $Usuario -> obtenerUsuarios(['usuario' => $usuario]);
+        $datosUsuario = $Usuario -> obtenerUsuarios(['DNI_Usuarios' => $usuario]);
         
         // Log para depuración
         log_message('info', 'User found in DB: ' . (count($datosUsuario) > 0 ? 'Yes' : 'No'));
@@ -82,8 +100,8 @@ class Home extends BaseController
         if (count($datosUsuario) > 0) {
             $usuarioDB = $datosUsuario[0];
             
-            // Verificar que el hash de la contraseña sea válido
-            if (empty($usuarioDB['password']) || !password_verify($password, $usuarioDB['password'])) {
+            // Verificar que el hash de la contraseña sea válido (usando password_verify)
+            if (empty($usuarioDB['Password_Usuarios']) || !password_verify($password, $usuarioDB['Password_Usuarios'])) {
                 // Log de intento fallido
                 log_message('warning', 'Failed login attempt for user: ' . $usuario);
                 
@@ -97,7 +115,7 @@ class Home extends BaseController
             }
             
             // Obtener información del usuario con su rol
-            $usuarioConRol = $Usuario->obtenerUsuarioConRol($usuarioDB['id_usuario']);
+            $usuarioConRol = $Usuario->obtenerUsuarioConRol($usuarioDB['idUsuarios']);
             
             // Verificar que se obtuvo la información del rol correctamente
             if (empty($usuarioConRol) || empty($usuarioConRol['rol'])) {
@@ -114,9 +132,9 @@ class Home extends BaseController
             
             // Usuario y contraseña correctos
             $data =[
-                "id_usuario" => $usuarioConRol['id_usuario'],
-                "usuario" => $usuarioConRol['usuario'],
-                "id_rol" => $usuarioConRol['id_rol'],
+                "id_usuario" => $usuarioConRol['idUsuarios'],
+                "usuario" => $usuarioConRol['DNI_Usuarios'],
+                "id_rol" => $usuarioConRol['idRoles_Usuarios'],
                 "rol" => $usuarioConRol['rol'],
                 "type" => $usuarioConRol['rol'] // Mantener compatibilidad con filtros existentes
             ];
@@ -141,11 +159,11 @@ class Home extends BaseController
             
             // Redirigir según el rol del usuario (para peticiones normales)
             switch ($usuarioConRol['rol']) {
-                case 'admin':
+                case 'Administrador':
                     return redirect()->to(base_url('/admin/dashboard'))->with('mensaje','1');
-                case 'recepcion':
+                case 'Recepcionista':
                     return redirect()->to('http://localhost/CEJO/CEJO-FrontEnd/cejo-recepcion/recepcion.html');
-                case 'tecnico':
+                case 'Tecnico':
                     return redirect()->to(base_url('/tecnico/panel'))->with('mensaje','1');
                 default:
                     return redirect()->to(base_url('/inicio'))->with('mensaje','1');
@@ -165,11 +183,11 @@ class Home extends BaseController
 
     private function getRedirectUrl($rol) {
         switch ($rol) {
-            case 'admin':
+            case 'Administrador':
                 return base_url('/admin/dashboard');
-            case 'recepcion':
+            case 'Recepcionista':
                 return 'http://localhost/CEJO/CEJO-FrontEnd/cejo-recepcion/recepcion.html';
-            case 'tecnico':
+            case 'Tecnico':
                 return base_url('/tecnico/panel');
             default:
                 return base_url('/inicio');
@@ -194,5 +212,38 @@ class Home extends BaseController
         $session->regenerate(true);
         
         return redirect()->to('http://localhost/CEJO/CEJO-FrontEnd/cejo-login/login.html');
+    }
+
+    public function obtenerUsuarioActual()
+    {
+        $session = session();
+        
+        // Verificar si hay una sesión activa
+        if (!$session->has('id_usuario')) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'No hay sesión activa'
+            ])->setStatusCode(401);
+        }
+        
+        $usuariosModel = new Usuarios();
+        $usuario = $usuariosModel->obtenerUsuarioConRol($session->get('id_usuario'));
+        
+        if (!$usuario) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Usuario no encontrado'
+            ])->setStatusCode(404);
+        }
+        
+        return $this->response->setJSON([
+            'success' => true,
+            'data' => [
+                'nombres' => $usuario['Nombres_Usuarios'],
+                'apellidos' => $usuario['Apellidos_Usuarios'],
+                'dni' => $usuario['DNI_Usuarios'],
+                'rol' => $usuario['rol']
+            ]
+        ]);
     }
 }

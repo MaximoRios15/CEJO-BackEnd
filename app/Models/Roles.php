@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class Roles extends Model
 {
-    protected $table            = 'troles';
-    protected $primaryKey       = 'id_rol';
+    protected $table            = 'roles';
+    protected $primaryKey       = 'idRoles';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['descripcion'];
+    protected $allowedFields    = ['Descripcion_Roles'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -89,6 +89,6 @@ class Roles extends Model
      */
     public function verificarRolExiste($descripcion)
     {
-        return $this->where('descripcion', $descripcion)->first();
+        return $this->where('Descripcion_Roles', $descripcion)->first();
     }
 }

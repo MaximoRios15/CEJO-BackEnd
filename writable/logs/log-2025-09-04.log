@@ -1,0 +1,146 @@
+CRITICAL - 2025-09-04 00:01:02 --> ErrorException: include(C:\xampp\htdocs\CEJO\CEJO-BackEnd\vendor\composer/../../app/Controllers/BaseController.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in VENDORPATH\composer\ClassLoader.php on line 576.
+ 1 VENDORPATH\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer/../../app/Controllers/BaseController.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer\\ClassLoader.php', 576)
+ 2 VENDORPATH\composer\ClassLoader.php(576): include()
+ 3 VENDORPATH\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer/../../app/Controllers/BaseController.php')
+ 4 APPPATH\Controllers\Home.php(4): Composer\Autoload\ClassLoader->loadClass('App\\Controllers\\BaseController')
+ 5 VENDORPATH\composer\ClassLoader.php(576): include('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\app\\Controllers\\Home.php')
+ 6 VENDORPATH\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer/../../app/Controllers/Home.php')
+ 7 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controllers\\Home')
+ 8 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Home', true)
+ 9 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\public\\index.php')
+CRITICAL - 2025-09-04 00:04:04 --> ErrorException: include(C:\xampp\htdocs\CEJO\CEJO-BackEnd\vendor\composer/../../app/Controllers/BaseController.php): Failed to open stream: No such file or directory
+[Method: POST, Route: login]
+in VENDORPATH\composer\ClassLoader.php on line 576.
+ 1 VENDORPATH\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer/../../app/Controllers/BaseController.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer\\ClassLoader.php', 576)
+ 2 VENDORPATH\composer\ClassLoader.php(576): include()
+ 3 VENDORPATH\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer/../../app/Controllers/BaseController.php')
+ 4 APPPATH\Controllers\Home.php(4): Composer\Autoload\ClassLoader->loadClass('App\\Controllers\\BaseController')
+ 5 VENDORPATH\composer\ClassLoader.php(576): include('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\app\\Controllers\\Home.php')
+ 6 VENDORPATH\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer/../../app/Controllers/Home.php')
+ 7 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controllers\\Home')
+ 8 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Home', true)
+ 9 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-09-04 00:05:07 --> ErrorException: include(C:\xampp\htdocs\CEJO\CEJO-BackEnd\vendor\composer/../../app/Controllers/BaseController.php): Failed to open stream: No such file or directory
+[Method: POST, Route: login]
+in VENDORPATH\composer\ClassLoader.php on line 576.
+ 1 VENDORPATH\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer/../../app/Controllers/BaseController.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer\\ClassLoader.php', 576)
+ 2 VENDORPATH\composer\ClassLoader.php(576): include()
+ 3 VENDORPATH\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer/../../app/Controllers/BaseController.php')
+ 4 APPPATH\Controllers\Home.php(4): Composer\Autoload\ClassLoader->loadClass('App\\Controllers\\BaseController')
+ 5 VENDORPATH\composer\ClassLoader.php(576): include('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\app\\Controllers\\Home.php')
+ 6 VENDORPATH\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer/../../app/Controllers/Home.php')
+ 7 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controllers\\Home')
+ 8 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Home', true)
+ 9 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-09-04 00:05:13 --> ErrorException: include(C:\xampp\htdocs\CEJO\CEJO-BackEnd\vendor\composer/../../app/Controllers/BaseController.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in VENDORPATH\composer\ClassLoader.php on line 576.
+ 1 VENDORPATH\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer/../../app/Controllers/BaseController.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer\\ClassLoader.php', 576)
+ 2 VENDORPATH\composer\ClassLoader.php(576): include()
+ 3 VENDORPATH\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer/../../app/Controllers/BaseController.php')
+ 4 APPPATH\Controllers\Home.php(4): Composer\Autoload\ClassLoader->loadClass('App\\Controllers\\BaseController')
+ 5 VENDORPATH\composer\ClassLoader.php(576): include('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\app\\Controllers\\Home.php')
+ 6 VENDORPATH\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer/../../app/Controllers/Home.php')
+ 7 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controllers\\Home')
+ 8 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Home', true)
+ 9 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-09-04 00:07:00 --> ErrorException: include(C:\xampp\htdocs\CEJO\CEJO-BackEnd\vendor\composer/../../app/Controllers/BaseController.php): Failed to open stream: No such file or directory
+[Method: POST, Route: login]
+in VENDORPATH\composer\ClassLoader.php on line 576.
+ 1 VENDORPATH\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer/../../app/Controllers/BaseController.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer\\ClassLoader.php', 576)
+ 2 VENDORPATH\composer\ClassLoader.php(576): include()
+ 3 VENDORPATH\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer/../../app/Controllers/BaseController.php')
+ 4 APPPATH\Controllers\Home.php(4): Composer\Autoload\ClassLoader->loadClass('App\\Controllers\\BaseController')
+ 5 VENDORPATH\composer\ClassLoader.php(576): include('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\app\\Controllers\\Home.php')
+ 6 VENDORPATH\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer/../../app/Controllers/Home.php')
+ 7 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controllers\\Home')
+ 8 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Home', true)
+ 9 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\public\\index.php')
+CRITICAL - 2025-09-04 00:07:36 --> ErrorException: include(C:\xampp\htdocs\CEJO\CEJO-BackEnd\vendor\composer/../../app/Controllers/BaseController.php): Failed to open stream: No such file or directory
+[Method: POST, Route: login]
+in VENDORPATH\composer\ClassLoader.php on line 576.
+ 1 VENDORPATH\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer/../../app/Controllers/BaseController.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer\\ClassLoader.php', 576)
+ 2 VENDORPATH\composer\ClassLoader.php(576): include()
+ 3 VENDORPATH\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer/../../app/Controllers/BaseController.php')
+ 4 APPPATH\Controllers\Home.php(4): Composer\Autoload\ClassLoader->loadClass('App\\Controllers\\BaseController')
+ 5 VENDORPATH\composer\ClassLoader.php(576): include('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\app\\Controllers\\Home.php')
+ 6 VENDORPATH\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\composer/../../app/Controllers/Home.php')
+ 7 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controllers\\Home')
+ 8 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Home', true)
+ 9 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\public\\index.php')
+CRITICAL - 2025-09-04 00:08:32 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "login.php"
+[Method: GET, Route: /]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('login', [], true)
+ 3 APPPATH\Controllers\Home.php(13): view('login', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-09-04 00:09:10 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "login.php"
+[Method: GET, Route: /]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('login', [], true)
+ 3 APPPATH\Controllers\Home.php(13): view('login', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-09-04 00:09:17 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "login.php"
+[Method: GET, Route: /]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('login', [], true)
+ 3 APPPATH\Controllers\Home.php(13): view('login', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-09-04 00:10:06 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "@vite"
+[Method: GET, Route: @vite/client]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('@vite/client')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('@vite/client')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\public\\index.php')

@@ -1,0 +1,24 @@
+CRITICAL - 2025-09-02 03:41:04 --> ErrorException: session_regenerate_id(): Session ID cannot be regenerated when there is no active session
+[Method: GET, Route: salir]
+in SYSTEMPATH\Session\Session.php on line 388.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'session_regenerate_id(): Session ID cannot be regenerated when there is no active session', 'C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\codeigniter4\\framework\\system\\Session\\Session.php', 388)
+ 2 SYSTEMPATH\Session\Session.php(388): session_regenerate_id(true)
+ 3 APPPATH\Controllers\Home.php(194): CodeIgniter\Session\Session->regenerate(true)
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->salir()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-09-02 03:41:38 --> ErrorException: session_regenerate_id(): Session ID cannot be regenerated when there is no active session
+[Method: GET, Route: salir]
+in SYSTEMPATH\Session\Session.php on line 388.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'session_regenerate_id(): Session ID cannot be regenerated when there is no active session', 'C:\\xampp\\htdocs\\CEJO\\CEJO-BackEnd\\vendor\\codeigniter4\\framework\\system\\Session\\Session.php', 388)
+ 2 SYSTEMPATH\Session\Session.php(388): session_regenerate_id(true)
+ 3 APPPATH\Controllers\Home.php(194): CodeIgniter\Session\Session->regenerate(true)
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->salir()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

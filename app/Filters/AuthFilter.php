@@ -11,7 +11,7 @@ class AuthFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         // Verificar si el usuario está logueado
-        if (!session('usuario')) {
+        if (!session('DNI_Usuarios')) {
             return redirect()->to(base_url('/'));
         }
 
