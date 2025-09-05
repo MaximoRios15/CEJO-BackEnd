@@ -41,6 +41,10 @@ $routes->get('equipos/estadisticas', 'EquipoController::stats');
 $routes->get('equipos/marcas', 'EquipoController::marcas');
 $routes->resource('equipos', ['controller' => 'EquipoController']);
 
+// Rutas para facturas
+$routes->resource('facturas', ['controller' => 'FacturaController']);
+$routes->get('facturas/equipo/(:num)', 'FacturaController::getByEquipo/$1');
+
 // Rutas para administrador
 $routes->group('admin', ['filter' => 'auth:admin'], function($routes) {
     $routes->get('dashboard', 'AdminController::index');

@@ -14,7 +14,7 @@ class ClienteModel extends Model
     protected $protectFields = true;
     protected $allowedFields = [
         'Nombres_Clientes',
-        'Apellidos_Clientes', 
+        'Apellidos_Clientes',
         'DNI_Clientes',
         'Telefono_Clientes',
         'Email_Clientes',
@@ -22,6 +22,7 @@ class ClienteModel extends Model
         'CodigoPostal_Clientes',
         'Ciudad_Clientes',
         'Provincia_Clientes',
+        'FechaRegistro_Clientes',
         'Activo_Clientes'
     ];
 
@@ -79,6 +80,9 @@ class ClienteModel extends Model
         'Provincia_Clientes' => [
             'required' => 'La provincia es obligatoria',
             'max_length' => 'La provincia no puede exceder 75 caracteres'
+        ],
+        'CodigoPostal_Clientes' => [
+            'max_length' => 'El código postal no puede exceder 10 caracteres'
         ]
     ];
 
