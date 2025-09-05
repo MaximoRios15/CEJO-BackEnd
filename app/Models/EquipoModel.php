@@ -15,6 +15,7 @@ class EquipoModel extends Model
     protected $allowedFields = [
         'idClientes_Equipos',
         'idCategorias_Equipos',
+        'Marca_Equipo',
         'Modelo_Equipos',
         'DescripcionProblema_Equipos',
         'idGarantias_Equipos',
@@ -36,6 +37,7 @@ class EquipoModel extends Model
     protected $validationRules = [
         'idClientes_Equipos' => 'required|integer|is_not_unique[clientes.idClientes]',
         'idCategorias_Equipos' => 'required|integer|is_not_unique[categorias_equipos.idCategorias]',
+        'Marca_Equipo' => 'permit_empty|max_length[100]',
         'idGarantias_Equipos' => 'permit_empty|integer|is_not_unique[garantias.idGarantias]',
         'Modelo_Equipos' => 'required|max_length[100]',
         'DescripcionProblema_Equipos' => 'required|max_length[255]',
@@ -56,6 +58,9 @@ class EquipoModel extends Model
             'required' => 'La categoría del equipo es requerida',
             'integer' => 'El ID de la categoría debe ser un número entero',
             'is_not_unique' => 'La categoría especificada no existe'
+        ],
+        'Marca_Equipo' => [
+            'max_length' => 'La marca no puede exceder 100 caracteres'
         ],
         'idGarantias_Equipos' => [
             'integer' => 'El ID de la garantía debe ser un número entero',
